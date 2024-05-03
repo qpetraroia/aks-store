@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-workflow
+  labels:
+    app: hello-world-workflow
+  namespace: default
+spec:
+  containers:
+    - name: hello-world-workflow
+      image: acrworkflow1714758608857.azurecr.io/image-workflow-1714758608857:latest
+      ports:
+        - containerPort: 8000
