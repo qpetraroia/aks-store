@@ -20,8 +20,8 @@ jobs:
             id-token: write
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
+            - uses: actions/checkout@v4
+            - uses: azure/login@v2.1.0
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -38,8 +38,8 @@ jobs:
         needs:
             - buildImage
         steps:
-            - uses: actions/checkout@v3
-            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
+            - uses: actions/checkout@v4
+            - uses: azure/login@v2.1.0
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
