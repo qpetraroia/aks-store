@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-workflow
+  labels:
+    app: hello-world-workflow
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-workflow
+  template:
+    metadata:
+      labels:
+        app: hello-world-workflow
+    spec:
+      containers:
+        - name: hello-world-workflow
+          image: acrworkflow1714607660551.azurecr.io/image-workflow-1714758367465:latest
+          ports:
+            - containerPort: 8000
