@@ -13,21 +13,21 @@ env:
     DEPLOYMENT_MANIFEST_PATH: |
         manifests/aks-store.yaml
 jobs:
-    buildImage:
-        permissions:
-            contents: read
-            id-token: write
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: azure/login@v2.1.0
-              name: Azure login
-              with:
-                client-id: ${{ secrets.AZURE_CLIENT_ID }}
-                subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-                tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            - name: Build and push image to ACR
-              run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
+    # buildImage:
+    #     permissions:
+    #         contents: read
+    #         id-token: write
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: actions/checkout@v4
+    #         - uses: azure/login@v2.1.0
+    #           name: Azure login
+    #           with:
+    #             client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    #             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    #             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    #         - name: Build and push image to ACR
+    #           run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
     deploy:
         permissions:
             actions: read
