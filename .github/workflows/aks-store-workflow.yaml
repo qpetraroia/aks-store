@@ -11,7 +11,7 @@ env:
     CLUSTER_RESOURCE_GROUP: qpetraroia-resource-group
     CONTAINER_NAME: image-workflow-1714758608857
     DEPLOYMENT_MANIFEST_PATH: |
-        # manifests/aks-store.yaml
+        manifests/aks-store.yaml
 jobs:
     buildImage:
         permissions:
